@@ -1,0 +1,55 @@
+{
+  "mainPageTitle": {
+    "appName": "Frontend Boilerplate",
+    "description": "Frontend Boilerplate Description"
+  },
+  "login": {
+    "title": "Login",
+    "description": "Login Page"
+  },
+  "register": {
+    "title": "Register",
+    "description": "Register Page"
+  },
+  "reset": {
+    "title": "Reset Password",
+    "description": "Reset Password Page"
+  },
+
+  "verify": {
+    "title": "Verify User",
+    "description": "Verify User Page"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "description": "Forgot Password Page"
+  },
+  "registerVerifyRequest": {
+    "title": "Register Verification",
+    "description": "Register Verification Page"
+  },
+  "resetPasswordRequest": {
+    "title": "Reset Verification",
+    "description": "Reset Verification Page"
+  },
+  "home": {
+    "title": "Home",
+    "description": "Home Page"
+  },
+  "unverifiedLogin": {
+    "title": "Unverified Login",
+    "description": "Unverified Login Page"
+  },
+  "linkSent": {
+    "title": "Link Sent",
+    "description": "Link Sent Page"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Dashboard Page"
+  },
+  "users": {
+    "title": "Users",
+    "description": "Users Page"
+  }
+}

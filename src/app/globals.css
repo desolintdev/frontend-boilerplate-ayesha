@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+/* ---break---  */
+@plugin 'tailwindcss-animate';
+/* ---break---  */
+@custom-variant dark (&:is(.dark *));
+
+/* toast styles  */
+.Toastify__toast-container {
+  width: auto !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  right: 1.5% !important;
+}
+
+/* Reset padding, margin, and box-sizing for the entire component */
+.Toastify__toast,
+.Toastify__toast * {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Reset padding for the toast body */
+.Toastify__toast-body {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important ;
+}
+
+.Toastify__close-button,
+.Toastify__close-button--colored {
+  display: none;
+}
+
+.Toastify__toast-theme--light {
+  background-color: transparent !important;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+  .Toastify__toast-theme--light {
+    background-color: transparent !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    top: 0.5% !important;
+    left: 20% !important;
+  }
+  .Toastify__toast {
+    box-shadow: none !important;
+  }
+  .Toastify__toast-theme--light {
+    background-color: transparent !important;
+  }
+}
+
+/* loaders styles  */
+
+.loader-icon {
+  animation: spin 1s infinite linear;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* shadCN theme palette  */
+
+/* ---break---  */
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #181818;
+  --primary-foreground: #fafafa;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #181818;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #181818;
+  --destructive: #e63946;
+  --destructive-foreground: #fafafa;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #0a0a0a;
+  --chart-1: #e4572e;
+  --chart-2: #1e9070;
+  --chart-3: #163d49;
+  --chart-4: #f5b700;
+  --chart-5: #e07b39;
+  --radius: 0.6rem;
+  --error: #dc3545;
+  --sidebar: #37373d;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1a1a1a;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f3f3f3;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #37373d;
+  --sidebar-ring: #388bff;
+  --sidebar-dark-blue: #257eea;
+  --sidebar-light-blue: #429cef;
+}
+
+/* ---break---  */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-error: var(--error);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-dark-blue: var(--sidebar-dark-blue);
+  --color-sidebar-light-blue: var(--sidebar-light-blue);
+}
+/* ---break---  */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* custom reusable classes here for tailwind  */
+@layer components {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

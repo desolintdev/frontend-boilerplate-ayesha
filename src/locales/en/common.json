@@ -1,0 +1,31 @@
+{
+  "commonContent": {
+    "previous": "Previous",
+    "next": "Next",
+    "reset": "Reset"
+  },
+  "loginLoader": {
+    "message": "Loading....."
+  },
+  "modal": {
+    "confirmLabel": "OK",
+    "deleteLabel": "Delete",
+    "dismissLabel": "Cancel"
+  },
+  "errorResponse": {
+    "message": "Something went wrong"
+  },
+  "submitButton": {
+    "text": "Submit"
+  },
+  "SelectType": {
+    "placeholder": "Select a Type"
+  },
+  "error": {
+    "message": "'An error occurred"
+  },
+  "navigationRoutes": {
+    "dashboard": "Dashboard",
+    "users": "Users"
+  }
+}

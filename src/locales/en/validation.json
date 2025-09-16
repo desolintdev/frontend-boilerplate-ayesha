@@ -1,0 +1,17 @@
+{
+  "authValidation": {
+    "emailInvalid": "Invalid email address",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Must contain at least 8 characters",
+    "passwordUppercase": "Must contain at least 1 uppercase letter",
+    "passwordsMustMatch": "Passwords must match",
+    "confirmPasswordRequired": "Confirm Password is required",
+    "firstNameMin": "First name must be at least 1 character",
+    "firstNameMax": "First name must be less than 255 characters",
+    "firstNameRequired": "First name is required",
+    "lastNameMin": "Last name must be at least 1 character",
+    "lastNameMax": "Last name must be less than 255 characters",
+    "lastNameRequired": "Last name is required"
+  }
+}
