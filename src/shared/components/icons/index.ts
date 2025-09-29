@@ -1,3 +1,4 @@
+import TasksIcons from '@/shared/components/icons//tasksIcon';
 import MenuIcon from '@/shared/components/icons/barsIcon';
 import CheckMarkIcon from '@/shared/components/icons/checkMarkIcon';
 import ChevronDownIcon from '@/shared/components/icons/chevronDownIcon';
@@ -32,4 +33,5 @@ export {
   CheckMarkIcon,
   ChevronDownIcon,
   ChevronUpIcon,
+  TasksIcons,
 };
