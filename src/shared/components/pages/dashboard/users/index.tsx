@@ -23,7 +23,6 @@ export default function DisplayUsers() {
   const Users = data?.Users || [];
 
   // use this list if fetch ALL user API is not working
-  // const list = useSelector(getUsersList);
   const list = Users;
 
   const {
