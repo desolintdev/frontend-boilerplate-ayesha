@@ -26,6 +26,7 @@
   },
   "navigationRoutes": {
     "dashboard": "Dashboard",
-    "users": "Users"
+    "users": "Users",
+    "tasks": "Tasks"
   }
 }

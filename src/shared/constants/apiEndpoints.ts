@@ -11,4 +11,8 @@ export const API_ENDPOINTS = {
     GET_LOGIN_USER: '/users/me',
     UPDATE_USER_LANGUAGE: '/users/language',
   },
+
+  TASKS: {
+    GET_TASKS_LIST: '/tasks/',
+  },
 };
