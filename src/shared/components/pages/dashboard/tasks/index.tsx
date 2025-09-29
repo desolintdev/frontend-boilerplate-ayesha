@@ -23,6 +23,7 @@ import useTranslation from '@/shared/hooks/useTranslation';
 import {Task} from '@/shared/interfaces/tasks';
 import {taskQueries} from '@/shared/reactQuery';
 import {OnChangeEvent} from '@/shared/types/common';
+import {getDueDateMeta} from '@/shared/utils/dateUtils';
 
 export default function TasksContent() {
   const {t} = useTranslation();
@@ -50,24 +51,9 @@ export default function TasksContent() {
     return (
       <div className='grid gap-4 '>
         {filteredData.map((task: Task) => {
-          const dueDate = task.dueDate ? new Date(task.dueDate) : null;
-          const today = new Date();
-
-          let dueLabel = 'No due date';
-          let dueClass = 'bg-gray-200 text-gray-600';
-
-          if (dueDate) {
-            const diff = Math.ceil(
-              (dueDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-            );
-            if (diff < 0) {
-              dueLabel = `${dueDate.toLocaleDateString()} • ${Math.abs(diff)} days overdue`;
-              dueClass = 'bg-red-100 text-red-700 border border-red-300';
-            } else {
-              dueLabel = `${dueDate.toLocaleDateString()} • ${diff} days left`;
-              dueClass = 'bg-green-100 text-green-700 border border-green-300';
-            }
-          }
+          const {label: dueLabel, className: dueClass} = getDueDateMeta({
+            dueDateString: task.dueDate,
+          });
 
           return (
             <Card

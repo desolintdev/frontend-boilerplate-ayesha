@@ -1,4 +1,4 @@
-import {DashboardIcon, UsersIcon, TasksIcons} from '@/shared/components/icons';
+import {DashboardIcon, UsersIcon, TasksIcon} from '@/shared/components/icons';
 import {SidebarRoute, SiteMapLink} from '@/shared/interfaces/utils';
 
 const path = ({root, path}: {root: string; path: string}): string =>
@@ -65,7 +65,7 @@ export const SIDEBAR_ROUTES = ({
     value: 'tasks',
     label: t('navigationRoutes.tasks'),
     path: DASHBOARD_ROUTES.tasks.all,
-    icon: TasksIcons,
+    icon: TasksIcon,
   },
 });
 

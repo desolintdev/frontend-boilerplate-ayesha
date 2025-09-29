@@ -1,4 +1,3 @@
-import TasksIcons from '@/shared/components/icons//tasksIcon';
 import MenuIcon from '@/shared/components/icons/barsIcon';
 import CheckMarkIcon from '@/shared/components/icons/checkMarkIcon';
 import ChevronDownIcon from '@/shared/components/icons/chevronDownIcon';
@@ -13,6 +12,7 @@ import LoaderIcon from '@/shared/components/icons/loaderIcon';
 import PanelLeftIcon from '@/shared/components/icons/panelLeftIcon';
 import SignOutIcon from '@/shared/components/icons/signOutIcon';
 import SuccessIcon from '@/shared/components/icons/successIcon';
+import TasksIcon from '@/shared/components/icons/tasksIcon';
 import UsersIcon from '@/shared/components/icons/usersIcon';
 import WarningIcon from '@/shared/components/icons/warningIcon';
 
@@ -33,5 +33,5 @@ export {
   CheckMarkIcon,
   ChevronDownIcon,
   ChevronUpIcon,
-  TasksIcons,
+  TasksIcon,
 };
