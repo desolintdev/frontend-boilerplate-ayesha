@@ -15,6 +15,7 @@ export const STATUS_COLORS: Record<string, string> = {
 export const DUE_DATE_COLORS = {
   none: 'bg-gray-200 text-gray-600',
   overdue: 'bg-red-100 text-red-700 border border-red-300',
+  today: 'bg-yellow-100 text-yellow-700 border border-yellow-300',
   upcoming: 'bg-green-100 text-green-700 border border-green-300',
 };
 

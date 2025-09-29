@@ -99,7 +99,7 @@ function getDueDateMeta({dueDateString}: {dueDateString?: string}): {
   if (isDueToday) {
     return {
       label: `${formattedDate} • Due today`,
-      className: 'bg-yellow-100 text-yellow-700 border border-yellow-300',
+      className: DUE_DATE_COLORS.today,
     };
   }
 
