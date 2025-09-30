@@ -14,7 +14,7 @@ import {Task} from '@/shared/interfaces/tasks';
 import {taskQueries} from '@/shared/reactQuery';
 import {OnChangeEvent} from '@/shared/types/common';
 
-import TaskDetailsModal from './TaskDetails';
+import TaskDetailsModal from './TaskDetailsModal';
 
 export default function TasksContent() {
   const {t} = useTranslation();
