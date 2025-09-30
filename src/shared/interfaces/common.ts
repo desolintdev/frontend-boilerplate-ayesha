@@ -1,10 +1,12 @@
-import { Dispatch, FormEventHandler, ReactNode, SetStateAction } from "react";
+import {Dispatch, FormEventHandler, ReactNode, SetStateAction} from 'react';
 
-import { IconBaseProps } from "react-icons";
+import {IconBaseProps} from 'react-icons';
+
+import {Task} from './tasks';
 
 export interface RootLayoutProps {
   children: ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{locale: string}>;
 }
 
 export interface GlobalErrorProps {
@@ -29,7 +31,7 @@ export interface AuthFormContainerProps {
 }
 
 export interface ToasterComponentProps {
-  type: "success" | "error" | "warning" | "info";
+  type: 'success' | 'error' | 'warning' | 'info';
   title: string;
   message: string;
   onClose?: () => void;
@@ -71,5 +73,17 @@ export interface ScriptLoaderProps {
   src: string;
   maxRetries?: number;
   retryDelay?: number;
-  strategy?: "lazyOnload" | "afterInteractive" | "beforeInteractive" | "worker";
+  strategy?: 'lazyOnload' | 'afterInteractive' | 'beforeInteractive' | 'worker';
+}
+
+export interface TaskCardProps {
+  task: Task;
+  onClick?: () => void;
+  truncateDescription?: boolean;
+}
+
+export interface TaskDetailsModalProps {
+  taskId: string;
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
 }

@@ -1,4 +1,4 @@
-import TasksContent from '@/shared/components/pages/dashboard/tasks/index';
+import TasksContent from '@/shared/components/pages/dashboard/tasks/TasksContent';
 import {TASKS} from '@/shared/constants/reactQueryConstants';
 import ReactPrefetchQueryProvider from '@/shared/providers/ReactPrefetchQueryProvider';
 import {generateMetadata} from '@/shared/utils/metadataUtils';
