@@ -1,6 +1,7 @@
 import {TASKS} from '@/shared/constants/reactQueryConstants';
 import {useQueryHandler} from '@/shared/hooks/reactQuery/useQueryHandler';
 import {QueryCallbacks} from '@/shared/interfaces/hooks';
+import {showToast} from '@/shared/utils/toasts';
 
 export const taskQueries = () => {
   return {
@@ -22,6 +23,31 @@ export const taskQueries = () => {
         },
         callbacks: {
           ...callBackFuncs,
+        },
+      }),
+
+    // Fetch task by ID
+    useFetchTaskById: ({
+      callBackFuncs,
+      id,
+    }: {
+      callBackFuncs?: QueryCallbacks;
+      id: string;
+    }) =>
+      useQueryHandler({
+        queryKey: TASKS.fetchTaskById.queryKey,
+        endpoint: TASKS.fetchTaskById.endpoint({id}),
+        params: {id},
+        customQueryOptions: {
+          staleTime: 0,
+          gcTime: 0,
+          refetchOnMount: true,
+          refetchOnReconnect: true,
+        },
+        callbacks: {
+          ...callBackFuncs,
+          onErrorAlways: (error) =>
+            showToast({type: 'error', message: error.message}),
         },
       }),
   };

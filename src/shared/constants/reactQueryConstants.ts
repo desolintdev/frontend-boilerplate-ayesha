@@ -35,4 +35,8 @@ export const TASKS = {
         params,
       }),
   },
+  fetchTaskById: {
+    queryKey: 'getTaskById',
+    endpoint: ({id}: {id: string}) => API_ENDPOINTS.TASKS.GET_TASK_BY_ID({id}),
+  },
 };

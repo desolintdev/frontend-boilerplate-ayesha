@@ -14,5 +14,6 @@ export const API_ENDPOINTS = {
 
   TASKS: {
     GET_TASKS_LIST: '/tasks/',
+    GET_TASK_BY_ID: ({id}: {id: string}) => `/tasks/${id}`,
   },
 };

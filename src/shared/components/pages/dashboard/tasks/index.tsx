@@ -1,30 +1,20 @@
 'use client';
 
+import {useState} from 'react';
+
 import PrimaryButton from '@/shared/components/common/buttons/PrimaryButton';
+import TaskCard from '@/shared/components/common/cards/TaskCard';
 import GlobalLoader from '@/shared/components/common/loaders/GlobalLoader';
 import SortSelects from '@/shared/components/common/SortSelects';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from '@/shared/components/ui/cards';
 import {Input} from '@/shared/components/ui/input';
 import {LIST_TYPES} from '@/shared/constants/general';
-import {
-  DEFAULT_LABEL_COLOR,
-  DUE_DATE_COLORS,
-  PRIORITY_COLORS,
-  STATUS_COLORS,
-} from '@/shared/constants/taskLabelColors';
 import useClientSideFilteredLists from '@/shared/hooks/listFilters/useClientSideFilteredLists';
 import useTranslation from '@/shared/hooks/useTranslation';
 import {Task} from '@/shared/interfaces/tasks';
 import {taskQueries} from '@/shared/reactQuery';
 import {OnChangeEvent} from '@/shared/types/common';
-import {getDueDateMeta} from '@/shared/utils/dateUtils';
+
+import TaskDetailsModal from './TaskDetails';
 
 export default function TasksContent() {
   const {t} = useTranslation();
@@ -40,6 +30,14 @@ export default function TasksContent() {
       listType: LIST_TYPES.tasks, // you’ll need to define this in LIST_TYPES
     });
 
+  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCardClick = ({id}: {id: string}) => {
+    setSelectedTaskId(id);
+    setIsModalOpen(true);
+  };
+
   const renderContent = () => {
     if (isLoading) {
       return <GlobalLoader />;
@@ -52,60 +50,13 @@ export default function TasksContent() {
     return (
       <div className='grid gap-4 '>
         {filteredData.map((task: Task) => {
-          const {label: dueLabel, className: dueClass} = getDueDateMeta({
-            dueDateString: task.dueDate,
-          });
-
           return (
-            <Card
+            <TaskCard
               key={task._id}
-              className='rounded-xl shadow-sm border hover:shadow-md transition-shadow'
-            >
-              <CardHeader>
-                <CardTitle className='text-base font-semibold'>
-                  {task.title || 'No Title'}
-                </CardTitle>
-                <CardDescription className='flex gap-2 flex-wrap'>
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-xs ${
-                      PRIORITY_COLORS[task.priority?.toUpperCase()] ||
-                      DEFAULT_LABEL_COLOR
-                    }`}
-                  >
-                    {task.priority?.toUpperCase() || 'NO PRIORITY'}
-                  </span>
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-xs ${
-                      STATUS_COLORS[task.status] || DEFAULT_LABEL_COLOR
-                    }`}
-                  >
-                    {task.status || 'UNKNOWN STATUS'}
-                  </span>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className='text-sm text-gray-700 line-clamp-3'>
-                  {task.description || 'No description provided'}
-                </p>
-                <p
-                  className={`mt-3 inline-block px-2 py-0.5 rounded-full text-xs ${
-                    dueClass || DUE_DATE_COLORS.none
-                  }`}
-                >
-                  Due: {dueLabel || 'No due date'}
-                </p>
-              </CardContent>
-              <CardFooter className='flex justify-between text-xs text-gray-500'>
-                <span>
-                  Creator: {task.creatorId?.firstName || 'Unknown'}{' '}
-                  {task.creatorId?.lastName || ''}
-                </span>
-                <span>
-                  Assignee: {task.assignedTo?.firstName || 'Unassigned'}{' '}
-                  {task.assignedTo?.lastName || ''}
-                </span>
-              </CardFooter>
-            </Card>
+              task={task}
+              onClick={() => handleCardClick({id: task._id})}
+              truncateDescription // list view should truncate
+            />
           );
         })}
       </div>
@@ -131,6 +82,13 @@ export default function TasksContent() {
           buttonText={t('commonContent.reset')}
         />
       </div>
+      {isModalOpen && selectedTaskId && (
+        <TaskDetailsModal
+          taskId={selectedTaskId}
+          isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
+        />
+      )}
 
       {renderContent()}
       <div className='mt-8'>{PaginationComponent}</div>
