@@ -15,6 +15,7 @@ import {Input} from '@/shared/components/ui/input';
 import {LIST_TYPES} from '@/shared/constants/general';
 import {
   DEFAULT_LABEL_COLOR,
+  DUE_DATE_COLORS,
   PRIORITY_COLORS,
   STATUS_COLORS,
 } from '@/shared/constants/taskLabelColors';
@@ -62,7 +63,7 @@ export default function TasksContent() {
             >
               <CardHeader>
                 <CardTitle className='text-base font-semibold'>
-                  {task.title}
+                  {task.title || 'No Title'}
                 </CardTitle>
                 <CardDescription className='flex gap-2 flex-wrap'>
                   <span
@@ -78,28 +79,30 @@ export default function TasksContent() {
                       STATUS_COLORS[task.status] || DEFAULT_LABEL_COLOR
                     }`}
                   >
-                    {task.status}
+                    {task.status || 'UNKNOWN STATUS'}
                   </span>
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className='text-sm text-gray-700 line-clamp-3'>
-                  {task.description}
+                  {task.description || 'No description provided'}
                 </p>
                 <p
-                  className={`mt-3 inline-block px-2 py-0.5 rounded-full text-xs ${dueClass}`}
+                  className={`mt-3 inline-block px-2 py-0.5 rounded-full text-xs ${
+                    dueClass || DUE_DATE_COLORS.none
+                  }`}
                 >
-                  Due: {dueLabel}
+                  Due: {dueLabel || 'No due date'}
                 </p>
               </CardContent>
               <CardFooter className='flex justify-between text-xs text-gray-500'>
                 <span>
-                  Creator: {task.creatorId?.firstName}{' '}
-                  {task.creatorId?.lastName}
+                  Creator: {task.creatorId?.firstName || 'Unknown'}{' '}
+                  {task.creatorId?.lastName || ''}
                 </span>
                 <span>
-                  Assignee: {task.assignedTo?.firstName}{' '}
-                  {task.assignedTo?.lastName}
+                  Assignee: {task.assignedTo?.firstName || 'Unassigned'}{' '}
+                  {task.assignedTo?.lastName || ''}
                 </span>
               </CardFooter>
             </Card>
