@@ -83,7 +83,7 @@ export interface TaskCardProps {
 }
 
 export interface TaskDetailsModalProps {
-  taskId: string | null;
+  taskId: string;
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }

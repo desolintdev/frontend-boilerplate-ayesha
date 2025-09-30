@@ -14,7 +14,7 @@ export default function TaskDetailsModal({
   setIsOpen,
 }: TaskDetailsModalProps) {
   const {useFetchTaskById} = taskQueries();
-  const {data, isLoading} = useFetchTaskById({id: taskId as string});
+  const {data, isLoading} = useFetchTaskById({id: taskId});
 
   const task = data?.tasks;
 
